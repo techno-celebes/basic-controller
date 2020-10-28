@@ -1,0 +1,12 @@
+{
+    "name": "techno-celebes/basic-controller",
+    "description": "For easier controller development",
+    "type": "library",
+    "license": "MIT",
+    "require": {},
+	"autoload": {
+		"psr-4": {
+			"TechnoCelebes\\BasicController\\": "src/" 
+		} 
+	}
+}
