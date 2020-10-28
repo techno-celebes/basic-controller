@@ -12,7 +12,7 @@ class ViewController extends Controller
     private $data_send;
 
     public function __construct(){
-        $this->set_data_send("title","Renum Dosen");
+        $this->set_data_send("title","My Website");
     }
 
     public function get_css_data(){
