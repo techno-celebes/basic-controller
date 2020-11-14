@@ -10,9 +10,10 @@ class ViewController extends Controller
     private $css_data;
     private $js_data;
     private $data_send;
+    private $title;
 
     public function __construct(){
-        $this->set_data_send("title","My Website");
+        $this->set_data_send("title","My Ordinary Website");
     }
 
     public function get_css_data(){
@@ -112,5 +113,9 @@ class ViewController extends Controller
             }
             $this->set_js_data($this->js_data);
         }
+    }
+
+    public function return_view($view_name){
+        return view($view_name,$this->get_data_send());
     }
 }
