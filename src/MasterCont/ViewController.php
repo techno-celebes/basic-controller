@@ -116,7 +116,9 @@ class ViewController extends Controller
     }
 
     public function return_view($view_name){
-        /**/
+        /*
+            m
+        */
         return view($view_name,$this->get_data_send());
     }
 }
