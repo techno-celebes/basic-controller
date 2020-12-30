@@ -28,7 +28,7 @@ class ViewController extends Controller
         return $this->data_send;
     }
 
-    public function set_data_send($n="",$data){
+    public function set_data_send($n="",$data=array()){
         if(strlen($n)>0){
             $l = $this->get_data_send();
             $l[$n] = $data;
