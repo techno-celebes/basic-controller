@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 class ViewController extends Controller
 {
+    //tag
     private $css_data;
     private $js_data;
     private $data_send;
