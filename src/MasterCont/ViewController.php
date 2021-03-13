@@ -7,9 +7,13 @@ use App\Http\Controllers\Controller;
 
 class ViewController extends Controller
 {
-    //tag 1
+    //tag
     private $css_data;
     private $js_data;
+
+    private $css_external_data;
+    private $js_external_data;
+
     private $data_send;
     private $title;
 
@@ -23,6 +27,14 @@ class ViewController extends Controller
 
     public function get_js_data(){
         return $this->js_data;
+    }
+
+    public function get_css_external_data(){
+        return $this->css_external_data;
+    }
+
+    public function get_js_external_data(){
+        return $this->css_external_data;
     }
 
     public function get_data_send(){
@@ -77,6 +89,36 @@ class ViewController extends Controller
         $this->data_send['js_data'] = $this->js_data;
     }
 
+    public function set_css_external_data($data,$prefix=""){
+        $f_data = array();
+        if(strlen($prefix)>=1){
+            foreach($data as $rep_data){
+                $rep_data = $prefix . $rep_data;
+                $f_data[] = $rep_data;
+            }
+        }else{
+            $f_data = $data;
+        }
+
+        $this->css_external_data = $f_data;
+        $this->data_send['css_external_data'] = $this->css_external_data;
+    }
+
+    public function set_js_external_data($data,$prefix=""){
+        $f_data = array();
+        if(strlen($prefix)>=1){
+            foreach($data as $rep_data){
+                $rep_data = $prefix . $rep_data;
+                $f_data[] = $rep_data;
+            }
+        }else{
+            $f_data = $data;
+        }
+
+        $this->js_external_data = $f_data;
+        $this->data_send['js_external_data'] = $this->js_external_data;
+    }
+
     public function combine_css($data,$position="last"){
         if(is_array($data)){
             if($position == "last"){
@@ -113,6 +155,46 @@ class ViewController extends Controller
                 $this->data_send['js_data'] = $this->js_data;
             }
             $this->set_js_data($this->js_data);
+        }
+    }
+
+    public function combine_css_external($data,$position="last"){
+        if(is_array($data)){
+            if($position == "last"){
+                $merge = array_merge($this->css_external_data,$data);
+            }else{
+                $merge = array_merge($data,$this->css_external_data);
+            }
+            $this->set_css_external_data($merge);
+        }else{
+            if($position == "last"){
+                array_push($this->css_external_data,$data);
+                $this->data_send['css_external_data'] = $this->css_external_data;
+            }else{
+                array_unshift($this->css_external_data, $data);
+                $this->data_send['css_external_data'] = $this->css_external_data;
+            }
+            $this->set_css_external_data($this->css_external_data);
+        }
+    }
+
+    public function combine_js_external($data,$position="last"){
+        if(is_array($data)){
+            if($position == "last"){
+                $merge = array_merge($this->js_external_data,$data);
+            }else{
+                $merge = array_merge($data,$this->js_external_data);
+            }
+            $this->set_js_external_data($merge);
+        }else{
+            if($position == "last"){
+                array_push($this->js_external_data,$data);
+                $this->data_send['js_external_data'] = $this->css_external_data;
+            }else{
+                array_unshift($this->js_external_data, $data);
+                $this->data_send['js_external_data'] = $this->js_external_data;
+            }
+            $this->set_js_external_data($this->js_external_data);
         }
     }
 
