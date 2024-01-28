@@ -1,6 +1,6 @@
 <?php
 
-namespace MyVendor\MyPackage;
+namespace TechnoCelebes\BasicController\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
