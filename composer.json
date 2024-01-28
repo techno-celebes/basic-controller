@@ -12,7 +12,7 @@
 	"extra": {
 	    "laravel": {
 	        "providers": [
-	            "TechnoCelebes\\BasicController\\Provider\\MasterViewProvider"
+	            "TechnoCelebes\\BasicController\\Providers\\MasterViewProvider"
 	        ]
 	    }
 	}
