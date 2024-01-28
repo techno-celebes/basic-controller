@@ -8,5 +8,12 @@
 		"psr-4": {
 			"TechnoCelebes\\BasicController\\": "src/" 
 		} 
+	},
+	"extra": {
+	    "laravel": {
+	        "providers": [
+	            "TechnoCelebes\\BasicController\\MasterViewProvider"
+	        ]
+	    }
 	}
 }
