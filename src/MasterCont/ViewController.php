@@ -19,6 +19,7 @@ class ViewController extends Controller
     private $data_send;
     private $title;
     private $yet;
+    private $s;
 
     public function __construct(){
         $this->set_data_send("body_class",array("noclasswhatsoever"));
